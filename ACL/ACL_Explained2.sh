@@ -4,16 +4,16 @@ http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/
 User Level
 ==========
 
-setfacl -R -m u:csreadmn:r-x /home/kxsb404
+setfacl -R -m u:csreadmn:r-x /home/ID
 
 Remove ACL from the given path
-setfacl -Rb /home/kxsb404
+setfacl -Rb /home/ID
 
 This command works fine.....
-setfacl -R -m u:csreadmn:r-X /home/kxsb404
+setfacl -R -m u:csreadmn:r-X /home/ID
  execute only if the file is a directory (or) already has execute permission for some user
 
-setfacl -Rd -m u:csreadmn:r-X /home/kxsb404
+setfacl -Rd -m u:csreadmn:r-X /home/ID
 d for future file inheritance - but not work well
 
 
@@ -21,7 +21,7 @@ Group Level
 ============
 
 This command works fine.....
-setfacl -R -m g:csreadmn:r-X /home/kxsb404
+setfacl -R -m g:csreadmn:r-X /home/ID
  execute only if the file is a directory (or) already has execute permission for some user
 
 =========================================================================================================================================================== 
@@ -29,8 +29,8 @@ setfacl -R -m g:csreadmn:r-X /home/kxsb404
 #! /bin/bash
 
 fs=/csre
-id=kxsb404
-mail_id=INCHRDICLIN@astrazeneca.com
+id=ID
+mail_id=email
 
 host_name=`hostname`
 start_time=`date`
@@ -55,8 +55,8 @@ mail -s "CSRE - ACL Permissions for icmigration Account - Script Execution Compl
 #! /bin/bash
 
 fs=/csre
-id=kxsb404
-mail_id=INCHRDICLIN@astrazeneca.com
+id=ID
+mail_id=EMAIL
 
 host_name=`hostname`
 start_time=`date`
@@ -76,8 +76,8 @@ mail -s "CSRE - ACL Permissions for icmigration Account - Script Execution Compl
 #! /bin/bash
 
 fs=/csre
-id=kxsb404
-mail_id=INCHRDICLIN@astrazeneca.com
+id=ID
+mail_id=EMAIL
 
 host_name=`hostname`
 start_time=`date`
@@ -95,11 +95,11 @@ mail -s "CSRE - ACL Permissions for icmigration Account - Script Execution Compl
 
 ==================================================================================
 
-find /home/kxsb404 -type d -ctime -1 -exec setfacl -m u:csreadmn:r-x {} \;
-find /home/kxsb404 -type f -ctime -1 -exec setfacl -m u:csreadmn:r-- {} \;
+find /home/ID -type d -ctime -1 -exec setfacl -m u:csreadmn:r-x {} \;
+find /home/ID -type f -ctime -1 -exec setfacl -m u:csreadmn:r-- {} \;
 
 
-find /home/kxsb404 -type f -cmin -5 -exec setfacl -m u:csreadmn:r-- {} \;
+find /home/ID -type f -cmin -5 -exec setfacl -m u:csreadmn:r-- {} \;
 
 
-find /home/kxsb404 -type f -cmin -5 -exec setfacl -m u:$id:r-- {} \;
+find /home/ID -type f -cmin -5 -exec setfacl -m u:$id:r-- {} \;
